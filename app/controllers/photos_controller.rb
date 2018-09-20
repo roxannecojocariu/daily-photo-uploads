@@ -25,6 +25,21 @@ class PhotosController < ApplicationController
     end
   end
 
+  def edit
+    set_photo
+  end
+
+  def update
+    set_photo
+    if @photo.update_attributes(photo_params)
+      flash[:notice] = "Your photo has been updated!"
+      redirect_to photo_path
+    else
+      flash[:notice] = @photo.errors.full_messages.join(", ")
+      render :new
+    end
+  end
+
   private
     def set_photo
       @photo = Photo.find(params[:id])

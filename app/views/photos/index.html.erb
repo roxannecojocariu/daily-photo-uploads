@@ -6,3 +6,12 @@
   <%= image_tag @todays_photo.image_url %></br>
   <%= @todays_photo.description %>
 <% end %>
+
+<h2><%= "Previous Photos:" %></h2>
+<% if @photos.empty? %>
+  <%= "You don't have any previous photos yet!" %>
+<% else %>
+  <% @photos.each do |photo| %>
+    <%= photo.date %></br>
+  <% end %>
+<% end %>

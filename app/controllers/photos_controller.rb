@@ -2,6 +2,13 @@ class PhotosController < ApplicationController
   before_action :authorize_user
 
   def index
+    @photos = []
+    Photo.find_each do |photo|
+      if photo.user == current_user
+        @photos << photo
+      end
+    end
+
     @todays_photo = one_photo_per_day
   end
 

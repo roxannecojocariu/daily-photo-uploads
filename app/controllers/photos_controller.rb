@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   before_action :authorize_user
 
   def index
-    @photos = Photo.all
+    @todays_photo = one_photo_per_day
   end
 
   def show

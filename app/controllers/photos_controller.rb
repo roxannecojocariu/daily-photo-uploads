@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
-  # before_action :set_photo, only: [:show, :edit, :update, :destroy
+  before_action :authorize_user
+
   def index
     @photos = Photo.all
   end
@@ -56,6 +57,13 @@ class PhotosController < ApplicationController
   end
 
   private
+    def authorize_user
+      if !user_signed_in?
+        flash[:notice] = "You do not have access to this page.  Please sign up or sign in."
+        redirect_to root_path
+      end
+    end
+
     def one_photo_per_day
       Photo.find_by(
         user_id: current_user,

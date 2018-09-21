@@ -1,0 +1,12 @@
+<h1>upload one photo to describe your mood for the day</h1>
+
+  <body>
+    <% @photos.each do |photo| %>
+      <%= photo.description %>
+      <%= photo.image %></br>
+    <% end %>
+  </body>
+
+<br>
+
+<%= link_to 'New Photo', new_photo_path %>

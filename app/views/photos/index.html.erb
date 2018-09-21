@@ -9,9 +9,9 @@
 
 <h2><%= "Previous Photos:" %></h2>
 <% if @photos.empty? %>
-  <%= "You don't have any previous photos yet!" %>
+  <%= "You don't have any photos yet!" %>
 <% else %>
   <% @photos.each do |photo| %>
-    <%= photo.date %></br>
+    <%= link_to photo.date, photos_path(photo) %></br>
   <% end %>
 <% end %>

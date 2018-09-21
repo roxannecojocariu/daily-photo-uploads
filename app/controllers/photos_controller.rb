@@ -15,6 +15,17 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new(photo_params)
     @photo.user = current_user
+    @photo.date = Date.current
+    one_photo_per_day = Photo.find_by(
+      user_id: current_user,
+      date: Date.current
+    )
+
+    if !one_photo_per_day.nil?
+      flash.now[:notice] = "You can only submit one photo per day"
+      render :new
+      return
+    end
 
     if @photo.save
       flash[:notice] = "Photo was successfully submitted."
@@ -23,6 +34,7 @@ class PhotosController < ApplicationController
       flash[:notice] = @photo.errors.full_messages.join(", ")
       render :new
     end
+
   end
 
   def edit
@@ -53,6 +65,6 @@ class PhotosController < ApplicationController
     end
 
     def photo_params
-      params.require(:photo).permit(:description, :image, :user)
+      params.require(:photo).permit(:description, :image, :user, :date)
     end
 end

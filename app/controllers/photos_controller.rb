@@ -16,10 +16,6 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     @photo.user = current_user
     @photo.date = Date.current
-    one_photo_per_day = Photo.find_by(
-      user_id: current_user,
-      date: Date.current
-    )
 
     if !one_photo_per_day.nil?
       flash.now[:notice] = "You can only submit one photo per day"
@@ -60,6 +56,13 @@ class PhotosController < ApplicationController
   end
 
   private
+    def one_photo_per_day
+      Photo.find_by(
+        user_id: current_user,
+        date: Date.current
+      )
+    end
+
     def set_photo
       @photo = Photo.find(params[:id])
     end

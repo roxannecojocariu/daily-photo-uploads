@@ -1,7 +1,15 @@
 class PhotosController < ApplicationController
-  # before_action :set_photo, only: [:show, :edit, :update, :destroy
+  before_action :authorize_user
+
   def index
-    @photos = Photo.all
+    @photos = []
+    Photo.find_each do |photo|
+      if photo.user == current_user
+        @photos << photo
+      end
+    end
+
+    @todays_photo = one_photo_per_day
   end
 
   def show
@@ -16,10 +24,6 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     @photo.user = current_user
     @photo.date = Date.current
-    one_photo_per_day = Photo.find_by(
-      user_id: current_user,
-      date: Date.current
-    )
 
     if !one_photo_per_day.nil?
       flash.now[:notice] = "You can only submit one photo per day"
@@ -60,6 +64,20 @@ class PhotosController < ApplicationController
   end
 
   private
+    def authorize_user
+      if !user_signed_in?
+        flash[:notice] = "You do not have access to this page.  Please sign up or sign in."
+        redirect_to root_path
+      end
+    end
+
+    def one_photo_per_day
+      Photo.find_by(
+        user_id: current_user,
+        date: Date.current
+      )
+    end
+
     def set_photo
       @photo = Photo.find(params[:id])
     end

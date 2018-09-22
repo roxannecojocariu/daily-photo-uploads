@@ -1,0 +1,27 @@
+.photo-index{
+  color: #52A2D6;
+  font-weight: 500;
+  font-size: 2.5em;
+  margin: 3% 5% 5% 1%;
+  text-align: left;
+}
+
+.no-photo{
+  font-size: .5em;
+}
+
+.previous-photos{
+  font-size: .5em;
+}
+
+.small-3.columns{
+  padding-right: 0%;
+}
+
+.center{
+  text-align: center;
+}
+
+.new-photo{
+  font-size: 1.5em;
+}

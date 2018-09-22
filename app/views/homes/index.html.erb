@@ -1,5 +1,13 @@
-<h1>Upload one photo to describe your mood for the day</h1>
-<h2>Click below to upload a new photo or view your photo for the day</h2>
+<div class='main-index'>
+  <div class="small-6 columns">
+    Upload one photo for the day. </br>
+    Please sign in or sign up.</br>
+    Then, click below to upload a new photo or view your photo for the day. </br></br>
+    <%= link_to "Today's Photo", photos_path %> ||
+    <%= link_to 'New Photo', new_photo_path %>
+  </div>
 
-<%= link_to "Today's Photo ||", photos_path %>
-<%= link_to 'New Photo', new_photo_path %>
+  <div class="small-6 columns">
+    <img src="https://i.imgur.com/shdA8O4.jpg" >
+  </div>
+</div>

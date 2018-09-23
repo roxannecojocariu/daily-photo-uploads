@@ -3,7 +3,7 @@ class CreatePhotos < ActiveRecord::Migration[5.2]
     create_table :photos do |t|
       t.belongs_to :user, null: false
       t.string :description
-      t.string :image
+      t.string :image, null: false
     end
   end
 end

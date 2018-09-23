@@ -3,6 +3,7 @@ class Photo < ApplicationRecord
 
   validates :user_id, presence: true
   validates :date, presence: true
+  validates :image, presence: true
   validate :image_size_validation
   mount_uploader :image, ImageUploader
 

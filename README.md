@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A basic rails app that lets users create an account and post/upload only a single picture per day.
 
-Things you may want to cover:
+Ruby Version - 2.3.3
 
-* Ruby version
+A user must sign up or sign in, in order to have full access to the app.
+A user can submit a photo for the day by filling out a form which requires a photo and description is optional.
+A user can view their submitted photo for the day or for any days they submitted a photo.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+For testing, I used Rspec and Capybara.

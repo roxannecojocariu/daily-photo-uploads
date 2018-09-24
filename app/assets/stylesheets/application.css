@@ -15,3 +15,14 @@
  *= require foundation_and_overrides
 
  */
+@import url('https://fonts.googleapis.com/css?family=Arvo');
+
+body{
+  background-color: #BED6E7;
+  font-family: Arvo;
+}
+
+.flash{
+  background: white;
+  color: #52A2D6;
+}

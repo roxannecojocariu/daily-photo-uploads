@@ -1,17 +1,31 @@
-<h1><%= "Your Daily Photo" %></h1>
-<% if @todays_photo.nil? %>
-  <%= "You haven't uploaded a photo today. Click below to add a new photo." %></br>
-  <%= link_to 'New Photo', new_photo_path %>
-<% else %>
-  <%= image_tag @todays_photo.image_url %></br>
-  <%= @todays_photo.description %>
-<% end %>
+<div class="photo-index">
+  <div class="small-9 columns" style="border-right: 10px solid #82B6D5; border-width:10px;">
+    <div class="center">
+      Your Daily Photo </br>
+    </div>
 
-<h2><%= "Previous Photos:" %></h2>
-<% if @photos.empty? %>
-  <%= "You don't have any photos yet!" %>
-<% else %>
-  <% @photos.each do |photo| %>
-    <%= link_to photo.date, photos_path(photo) %></br>
-  <% end %>
-<% end %>
+    <% if @todays_photo.nil? %>
+      <div class="no-photo">
+        </br><%= "You haven't uploaded a photo today." %></br>
+        <%= "Click below to add a new photo." %></br></br>
+        <%= link_to "New Photo", new_photo_path, class: "new-photo" %>
+      </div>
+    <% else %>
+      <%= image_tag @todays_photo.image_url %></br>
+      <%= "Photo Description: #{@todays_photo.description}" %>
+    <% end %>
+  </div>
+
+  <div class="small-3 columns">
+    <%= "Previous Photos:" %>
+    <% if @photos.empty? %>
+      <div class="previous-photos">
+        <%= "You don't have any photos yet!" %>
+      </div>
+    <% else %>
+      <% @photos.each do |photo| %>
+        <%= link_to photo.date, photo_path(photo), class: "previous-photos" %></br>
+      <% end %>
+    <% end %>
+  </div>
+</div>

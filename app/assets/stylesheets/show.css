@@ -1,0 +1,28 @@
+.show-heading{
+  color: #52A2D6;
+  font-weight: 500;
+  font-size: 2.5em;
+  text-align: center;
+  margin-left: 2%;
+}
+
+.show{
+  color: #52A2D6;
+  font-weight: 500;
+  font-size: 1.5em;
+  text-align: left;
+}
+
+.show-buttons{
+  color: #52A2D6;
+  font-weight: 500;
+  font-size: 1.5em;
+  text-align: right;
+}
+
+.description{
+  text-align: center;
+}
+.row{
+  text-align: center;
+}

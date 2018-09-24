@@ -1,5 +1,9 @@
-<h1>New Photo</h1>
+<div class="form">
+  <div class="heading">
+    <%= "New Photo" %>
+  </div></br>
 
-<%= render 'form', photo: @photo%>
+    <%= render 'form', photo: @photo%></br>
 
-<%= link_to 'Back', photos_path%>
+    <%= link_to 'Back to Photos', photos_path, class: "back"%>
+</div>

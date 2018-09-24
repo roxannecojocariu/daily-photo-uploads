@@ -1,7 +1,11 @@
-<h1><%= "Photo of the Day" %> </h1>
-
-<%= @photo.description %></br>
-<%= image_tag @photo.image_url %></br>
-<%= @photo.user.email %>
-<%= link_to 'Edit', edit_photo_path(@photo) %>
-<%= link_to 'Destroy', @photo, method: :delete, data: { confirm: 'Are you sure?' } %>
+<div class="show-heading"><%= "Photo of the Day (#{@photo.date})" %></div></br>
+  <div class="row">
+    <%= image_tag @photo.image_url %></br></br>
+    <div class="small-6 column show">
+      <%= "Photo Description: #{@photo.description}" %></br></br>
+    </div>
+    <div class="small-6 column show-buttons">
+      <%= link_to 'Edit', edit_photo_path(@photo) %> ||
+    <%= link_to 'Delete', @photo, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+</div>

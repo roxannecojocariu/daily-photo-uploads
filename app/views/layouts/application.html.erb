@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>UserPictureUploads</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <title>Daily Photo Uploads</title>
+    <%= stylesheet_link_tag "application", media: 'all' %>
+    <%= javascript_include_tag "vendor/modernizr" %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
   </head>
 
   <body>
@@ -33,7 +32,12 @@
       <div class="flash flash-<%= key %>">
         <%= value %>
       </div>
-<%- end -%>
+    <%- end -%>
+
     <%= yield %>
+
+    <%= javascript_include_tag "application" %>
+
+    <%= yield :extra_footer %>
   </body>
 </html>
